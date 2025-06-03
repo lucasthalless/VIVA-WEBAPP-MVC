@@ -6,7 +6,7 @@ VIVA é uma plataforma que combina monitoramento ambiental, comunicação comuni
 
 Nosso objetivo é oferecer uma rede de apoio que funcione mesmo quando internet, sinal de celular e energia falham, colocando a vida e o cuidado coletivo no centro da solução.
 
-![pilares.jpg](pilares.jpg)
+![pilares.jpg](https://github.com/lucasthalless/VIVA-WEBAPP-MVC/blob/main/VIVA-WEBAPP-MVC/wwwroot/pilares.jpg)
 
 ### Requisitos do projeto:
 
