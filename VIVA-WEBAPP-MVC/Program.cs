@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 using MOTTHRU.API.Application.Interfaces;
 using MOTTHRU.API.Application.Services;
 using MOTTHRU.API.Domain.Interfaces;
@@ -11,12 +12,22 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<ApplicationContext>(options => {
-    
     options.UseNpgsql(builder.Configuration.GetConnectionString("Postgres"));
 });
 
 builder.Services.AddTransient<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddTransient<IUsuarioApplicationService, UsuarioApplicationService>();
+
+builder.Services.AddSwaggerGen(conf =>
+{
+    conf.SwaggerDoc("v1", new OpenApiInfo()
+    {
+        Title = "VIVA API",
+        Version = "v1",
+        Description = "API Para gerenciar o backend da solução VIVA.",
+    });
+    conf.EnableAnnotations();
+});
 
 var app = builder.Build();
 
@@ -24,6 +35,12 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "VIVA API V1");
+        c.RoutePrefix = "swagger";
+    });
 }
 
 app.UseStaticFiles();
