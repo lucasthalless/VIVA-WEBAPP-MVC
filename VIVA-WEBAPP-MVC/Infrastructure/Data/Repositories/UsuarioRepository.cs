@@ -15,8 +15,8 @@ namespace MOTTHRU.API.Infrastructure.Data.Repository
 
         public IEnumerable<UsuarioEntity> GetAll()
         {
-            var motos = _context.usuario.ToList();
-            return motos;
+            var usuarios = _context.usuario.ToList();
+            return usuarios;
         }
 
         public UsuarioEntity GetById(int id)
