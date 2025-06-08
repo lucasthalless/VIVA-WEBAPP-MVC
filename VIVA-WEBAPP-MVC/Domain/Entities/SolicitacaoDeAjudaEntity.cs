@@ -34,6 +34,6 @@ namespace MOTTHRU.API.Domain.Entities
         public long IdUsuario { get; set; }
 
         [ForeignKey(nameof(IdUsuario))]
-        public virtual UsuarioEntity? Usuario { get; set; }
+        public UsuarioEntity? Usuario { get; set; }
     }
 }

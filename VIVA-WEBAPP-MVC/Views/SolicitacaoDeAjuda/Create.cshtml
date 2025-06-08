@@ -1,0 +1,58 @@
+@model MOTTHRU.API.Domain.Entities.SolicitacaoDeAjudaEntity
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>SolicitacaoDeAjuda</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TipoSolicitacao" class="control-label"></label>
+                <input asp-for="TipoSolicitacao" class="form-control" />
+                <span asp-validation-for="TipoSolicitacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Conteudo" class="control-label"></label>
+                <input asp-for="Conteudo" class="form-control" />
+                <span asp-validation-for="Conteudo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataHora" class="control-label"></label>
+                <input asp-for="DataHora" class="form-control" />
+                <span asp-validation-for="DataHora" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nivel" class="control-label"></label>
+                <input asp-for="Nivel" class="form-control" />
+                <span asp-validation-for="Nivel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdUsuario" class="control-label"></label>
+                @Html.DropDownListFor(model => model.IdUsuario, (SelectList)ViewBag.Usuarios, "Selecione um usuário", new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

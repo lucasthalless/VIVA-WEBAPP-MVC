@@ -1,5 +1,4 @@
-
-
+using Microsoft.EntityFrameworkCore;
 using MOTTHRU.API.Domain.Entities;
 using MOTTHRU.API.Domain.Interfaces;
 using MOTTHRU.API.Infrastructure.Data.AppData;
@@ -14,7 +13,7 @@ namespace VIVA_WEBAPP_MVC.Infrastructure.Data.Repositories
         {
             _context = context;
         }
-        
+
         public IEnumerable<SolicitacaoDeAjudaEntity> GetAll()
         {
             var solicitacoesDeAjuda = _context.solicitacaoDeAjuda.ToList();
@@ -23,14 +22,16 @@ namespace VIVA_WEBAPP_MVC.Infrastructure.Data.Repositories
 
         public SolicitacaoDeAjudaEntity GetById(int id)
         {
-            return _context.solicitacaoDeAjuda.Find(id);
+            return _context.solicitacaoDeAjuda
+                .Include(x => x.Usuario)
+                .FirstOrDefault(x => x.Id == id);
         }
 
         public SolicitacaoDeAjudaEntity Create(SolicitacaoDeAjudaEntity solicitacaoDeAjudaEntity)
         {
             if (solicitacaoDeAjudaEntity is null)
                 throw new ArgumentNullException(nameof(solicitacaoDeAjudaEntity));
-
+            
             _context.Add(solicitacaoDeAjudaEntity);
             _context.SaveChanges();
 
@@ -72,5 +73,5 @@ namespace VIVA_WEBAPP_MVC.Infrastructure.Data.Repositories
 
             return solicitacaoDeAjuda;
         }
-    }   
+    }
 }

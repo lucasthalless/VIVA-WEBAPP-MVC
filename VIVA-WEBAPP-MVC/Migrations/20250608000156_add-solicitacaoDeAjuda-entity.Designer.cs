@@ -3,6 +3,7 @@ using System;
 using MOTTHRU.API.Infrastructure.Data.AppData;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace VIVA_WEBAPP_MVC.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20250608000156_add-solicitacaoDeAjuda-entity")]
+    partial class addsolicitacaoDeAjudaentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -54,11 +57,14 @@ namespace VIVA_WEBAPP_MVC.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("character varying(10)");
 
+                    b.Property<long?>("UsuarioId")
+                        .HasColumnType("bigint");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("IdUsuario");
+                    b.HasIndex("UsuarioId");
 
-                    b.ToTable("solicitacaoDeAjuda", (string)null);
+                    b.ToTable("solicitacaoDeAjuda");
                 });
 
             modelBuilder.Entity("MOTTHRU.API.Domain.Entities.UsuarioEntity", b =>
@@ -93,16 +99,14 @@ namespace VIVA_WEBAPP_MVC.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("usuario", (string)null);
+                    b.ToTable("usuario");
                 });
 
             modelBuilder.Entity("MOTTHRU.API.Domain.Entities.SolicitacaoDeAjudaEntity", b =>
                 {
                     b.HasOne("MOTTHRU.API.Domain.Entities.UsuarioEntity", "Usuario")
                         .WithMany("SolicitacoesDeAjuda")
-                        .HasForeignKey("IdUsuario")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UsuarioId");
 
                     b.Navigation("Usuario");
                 });
