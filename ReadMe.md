@@ -8,6 +8,10 @@ Nosso objetivo é oferecer uma rede de apoio que funcione mesmo quando internet,
 
 ![pilares.jpg](https://github.com/lucasthalless/VIVA-WEBAPP-MVC/blob/main/VIVA-WEBAPP-MVC/wwwroot/pilares.jpg)
 
+**Diagrama da arquitetura da solução:**
+
+![arquitetura.jpeg](VIVA-WEBAPP-MVC/wwwroot/arquitetura.jpeg)
+
 ⚠️ DISCLAIMER: O app foi desenvolvido no _Rider_,então o scaffolding e algumas configurações fogem dos padrões dos códigos feitos em aula, que são feitos no VS Code. 
 
 ## ✅ Pré-requisitos
@@ -196,9 +200,9 @@ DELETE http://localhost:5233/api/usuario/2
 
 ### Requisitos do projeto:
 
-- [ ] API REST que atenda a boas práticas de programação / arquitetura;
-- [ ] Persistência em Banco de Dados relacional;
-- [ ] Pelo menos um relacionamento 1:N;
-- [ ] Documentação com o Swagger;
-- [ ] Aplicação de Razor e TagHelpers;
-- [ ] Uso correto da Migration no projeto.
+- [x] API REST que atenda a boas práticas de programação / arquitetura;
+- [x] Persistência em Banco de Dados relacional;
+- [x] Pelo menos um relacionamento 1:N;
+- [x] Documentação com o Swagger;
+- [x] Aplicação de Razor e TagHelpers;
+- [x] Uso correto da Migration no projeto.
