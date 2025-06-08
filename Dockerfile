@@ -20,9 +20,11 @@ FROM base AS final
 ENV ASPNETCORE_ENVIRONMENT="Development"
 ENV ASPNETCORE_HTTP_PORTS=5233
 ENV ASPNETCORE_URLS=http://+:5233
-RUN useradd -m vivauser
+USER root
+RUN groupadd -r vivauser && useradd -r -g vivauser -d /app -s /sbin/nologin vivauser
 WORKDIR /app
 COPY --from=publish /app/publish .
+RUN chown -R vivauser:vivauser /app
 USER vivauser
 EXPOSE 5233
 ENTRYPOINT ["dotnet", "VIVA-WEBAPP-MVC.dll"]
