@@ -8,9 +8,11 @@ Nosso objetivo é oferecer uma rede de apoio que funcione mesmo quando internet,
 
 ![pilares.jpg](https://github.com/lucasthalless/VIVA-WEBAPP-MVC/blob/main/VIVA-WEBAPP-MVC/wwwroot/pilares.jpg)
 
+⚠️ DISCLAIMER: O app foi desenvolvido no _Rider_,então o scaffolding e algumas configurações fogem dos padrões dos códigos feitos em aula, que são feitos no VS Code. 
+
 ## ✅ Pré-requisitos
 
-- .NET SDK 7.x (ou superior)
+- .NET SDK 8
 - PostgreSQL instalado e configurado
 - (Opcional) IDE como Visual Studio 2022, Visual Studio Code ou Rider
 
