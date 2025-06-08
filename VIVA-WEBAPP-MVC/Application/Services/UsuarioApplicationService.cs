@@ -38,7 +38,7 @@ namespace MOTTHRU.API.Application.Services
                 Nome = usuario.Nome,
                 Email = usuario.Email,
                 Telefone = usuario.Telefone,
-                TipoUsuario = usuario.TipoUsuario,
+                TipoUsuario = usuario.TipoUsuario.ToString(),
                 Cpf = usuario.Cpf,
             };
 
@@ -56,7 +56,7 @@ namespace MOTTHRU.API.Application.Services
                 Nome = usuario.Nome,
                 Email = usuario.Email,
                 Telefone = usuario.Telefone,
-                TipoUsuario = usuario.TipoUsuario,
+                TipoUsuario = usuario.TipoUsuario.ToString(),
                 Cpf = usuario.Cpf,
             };
 

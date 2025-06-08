@@ -1,5 +1,11 @@
 using System.ComponentModel.DataAnnotations;
 
+public enum TipoUsuarioEnum
+{
+    usuario,
+    adm
+}
+
 namespace MOTTHRU.API.Application.Dtos
 {
     public class UsuarioDto
@@ -19,7 +25,6 @@ namespace MOTTHRU.API.Application.Dtos
         public string? Email { get; set; }
 
         [Required(ErrorMessage = "O tipo de usuário é obrigatório.")]
-        [StringLength(10, ErrorMessage = "O tipo de usuário deve ter no máximo 10 caracteres.")]
-        public required string TipoUsuario { get; set; }
+        public required TipoUsuarioEnum TipoUsuario { get; set; }
     }
 }

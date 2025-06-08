@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -27,6 +28,9 @@ namespace MOTTHRU.API.Domain.Entities
 
         [Required(ErrorMessage = "O tipo de usuário é obrigatório.")]
         [StringLength(10, ErrorMessage = "O tipo de usuário deve ter no máximo 10 caracteres.")]
+        [DisplayName("Tipo do usuário")]
         public required string TipoUsuario { get; set; }
+        
+        public virtual ICollection<SolicitacaoDeAjudaEntity>? SolicitacoesDeAjuda { get; set; }
     }
 }

@@ -10,6 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddDbContext<ApplicationContext>(options => {
     options.UseNpgsql(builder.Configuration.GetConnectionString("Postgres"));
@@ -32,15 +34,16 @@ builder.Services.AddSwaggerGen(conf =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "VIVA API V1");
         c.RoutePrefix = "swagger";
     });
+} else {
+    app.UseExceptionHandler("/Home/Error");
 }
 
 app.UseStaticFiles();
@@ -52,5 +55,7 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapControllers();
 
 app.Run();

@@ -10,5 +10,6 @@ namespace MOTTHRU.API.Infrastructure.Data.AppData
         }
 
         public DbSet<UsuarioEntity> usuario { get; set; }
+        public DbSet<SolicitacaoDeAjudaEntity> solicitacaoDeAjuda { get; set; }
     }
 }

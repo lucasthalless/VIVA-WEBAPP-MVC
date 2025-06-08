@@ -10,6 +10,8 @@ using MOTTHRU.API.Infrastructure.Data.AppData;
 
 namespace VIVA_WEBAPP_MVC.Views
 {
+    // [ApiController]
+    // [Route("/api/usuario")]
     public class UsuariosController : Controller
     {
         private readonly ApplicationContext _context;
