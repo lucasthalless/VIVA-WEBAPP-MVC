@@ -9,7 +9,7 @@ using Swashbuckle.AspNetCore.Annotations;
 namespace VIVA_WEBAPP_MVC.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/usuario")]
     [Produces("application/json")]
     public class UsuariosApiController : ControllerBase
     {

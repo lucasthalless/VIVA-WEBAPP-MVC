@@ -132,6 +132,7 @@ namespace VIVA_WEBAPP_MVC.Views
             {
                 try
                 {
+                    solicitacaoDeAjuda.DataHora = DateTime.SpecifyKind(solicitacaoDeAjuda.DataHora, DateTimeKind.Utc);
                     _context.Update(solicitacaoDeAjuda);
                     await _context.SaveChangesAsync();
                 }

@@ -8,7 +8,7 @@ using Swashbuckle.AspNetCore.Annotations;
 namespace VIVA_WEBAPP_MVC.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/solicitacaoDeAjuda")]
     public class SolicitacaoDeAjudaApiController : ControllerBase
     {
         private readonly ApplicationContext _context;
