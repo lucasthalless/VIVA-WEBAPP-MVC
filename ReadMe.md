@@ -8,8 +8,58 @@ Nosso objetivo é oferecer uma rede de apoio que funcione mesmo quando internet,
 
 ![pilares.jpg](https://github.com/lucasthalless/VIVA-WEBAPP-MVC/blob/main/VIVA-WEBAPP-MVC/wwwroot/pilares.jpg)
 
-## 📘 Documentação da API
+## ✅ Pré-requisitos
 
+- .NET SDK 7.x (ou superior)
+- PostgreSQL instalado e configurado
+- (Opcional) IDE como Visual Studio 2022, Visual Studio Code ou Rider
+
+## 📥 Como baixar o projeto
+
+### Clone o repositório
+```bash
+git clone https://github.com/lucasthalless/VIVA-WEBAPP-MVC.git
+cd VIVA-WEBAPP-MVC
+```
+
+### Restaure pacotes
+```bash
+dotnet restore
+```
+
+## 🛠️ Configuração do banco de dados
+
+No appsettings.json, configure a connection string para o PostgreSQL, por exemplo:
+
+```json
+"ConnectionStrings": {
+  "DefaultConnection": "Host=localhost;Database=viva_db;Username=seu_usuario;Password=sua_senha"
+}
+```
+
+### Aplique as migrações (caso existam):
+
+```bash
+dotnet ef database update
+```
+
+### ▶️ Como executar
+
+```bash
+cd VIVA-WEBAPP-MVC
+dotnet run
+```
+
+Por padrão, o app será iniciado em http://localhost:5233.
+
+A interface MVC ficará acessível em rotas como /Usuarios e /SolicitacaoDeAjuda.
+
+A API REST com Swagger estará disponível em http://localhost:5233/swagger.
+
+## 📘 Documentação da API e como testar
+
+
+Use ferramentas como Postman, Insomnia ou REST Client no VS Code.
 Base URL: `http://localhost:5233/api`
 
 ---
@@ -131,6 +181,16 @@ Deleta um usuário.
 ```
 DELETE http://localhost:5233/api/usuario/2
 ```
+
+## ✅ Resumo
+
+🚀 Clone, configure e execute com dotnet run
+
+🧩 A interface MVC está em /Usuarios e /SolicitacaoDeAjuda
+
+🔍 A API e documentação Swagger estão em /swagger
+
+🧪 Use os exemplos acima para testar com Postman ou REST Client
 
 ### Requisitos do projeto:
 
