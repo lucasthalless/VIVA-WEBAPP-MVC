@@ -94,12 +94,11 @@ POST http://localhost:5233/api/solicitacaoDeAjuda
 Content-Type: application/json
 
 {
-  "id": 0,
   "tipoSolicitacao": "string",
-  "conteudo": "string",
+  "conteudo": "solicitação de demonstração",
   "dataHora": "2025-06-08T15:31:59.083Z",
-  "status": "string",
-  "nivel": "strin",
+  "status": "status",
+  "nivel": "nivel",
   "idUsuario": 1
 }
 ```
@@ -155,12 +154,11 @@ POST http://localhost:5233/api/usuario
 Content-Type: application/json
 
 {
-  "id": 0,
   "nome": "João Silva",
   "cpf": "12345678900",
   "telefone": "11999999999",
   "email": "joao@example.com",
-  "tipoUsuario": "Comum"
+  "tipoUsuario": "usuario"
 }
 ```
 
